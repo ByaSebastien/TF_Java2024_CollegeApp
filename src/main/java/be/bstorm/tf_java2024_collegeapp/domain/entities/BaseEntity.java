@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class BaseEntity<T extends Serializable> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Getter
     private T id;
 

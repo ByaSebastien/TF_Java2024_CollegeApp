@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import lombok.*;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
@@ -18,4 +17,9 @@ public class Grade extends BaseEntity<Long>{
     @Getter @Setter
     @Column(name = "ACADEMIC_YEAR")
     private int academicYear;
+
+    public Grade(String name, int academicYear) {
+        this.name = name;
+        this.academicYear = academicYear;
+    }
 }
