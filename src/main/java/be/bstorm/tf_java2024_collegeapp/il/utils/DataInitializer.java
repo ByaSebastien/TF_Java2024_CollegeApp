@@ -9,6 +9,7 @@ import be.bstorm.tf_java2024_collegeapp.domain.entities.User;
 import be.bstorm.tf_java2024_collegeapp.domain.enums.UserGender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class DataInitializer implements CommandLineRunner {
     private final UserRepository userRepository;
     private final StudentRepository studentRepository;
     private final ProfessorRepository professorRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
@@ -30,7 +32,7 @@ public class DataInitializer implements CommandLineRunner {
                     "Balboa",
                     "Rocky",
                     "rock@test.be",
-                    "Test1234=",
+                    passwordEncoder.encode("Test1234="),
                     UserGender.MALE,
                     true,
                     "0000");
@@ -42,7 +44,7 @@ public class DataInitializer implements CommandLineRunner {
                     "Clooney",
                     "Le clown",
                     "georgy@test.be",
-                    "Test1234=",
+                    passwordEncoder.encode("Test1234="),
                     UserGender.MALE,
                     true,
                     "The GOAT",
